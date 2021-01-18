@@ -1,4 +1,4 @@
-package model
+package cart.model
 
 sealed class FruitPrice( val name: String, val price: BigDecimal )
 

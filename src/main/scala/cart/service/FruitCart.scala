@@ -1,10 +1,10 @@
-package service
+package cart.service
 
-import model.{Apple, FruitPrice, Orange}
+import cart.model.{Apple, FruitPrice, Orange}
 
-case class ShoppingCart( contents: List[FruitPrice] = List.empty ) {
-  def add( fruitPrice: FruitPrice ) : ShoppingCart = {
-    ShoppingCart( fruitPrice :: contents )
+case class FruitCart(contents: List[FruitPrice] = List.empty ) {
+  def add( fruitPrice: FruitPrice ) : FruitCart = {
+    FruitCart( fruitPrice :: contents )
   }
 
   def price: BigDecimal = {
