@@ -1,6 +1,7 @@
 # simple-fruit-cart
 
 Inital Assumptions:
+
 You are building a checkout system for a shop which only sells apples and
 oranges.
 ● Apples cost 60p and oranges cost 25p.
@@ -12,6 +13,7 @@ candidates take a list of strings as input
 
 
 Test : 
+
 ● The shop decides to introduce two new offers
   ○ buy one, get one free on Apples
   ○ 3 for the price of 2 on Oranges
