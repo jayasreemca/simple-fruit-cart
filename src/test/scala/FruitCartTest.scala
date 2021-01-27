@@ -1,4 +1,4 @@
-import cart.model.{Apple, Orange}
+import cart.model.{Apple, Banana, Orange}
 import cart.service.FruitCart
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers
@@ -22,6 +22,11 @@ class FruitCartTest extends AnyFlatSpec with Matchers{
     cart.price should be ( BigDecimal( "0.25" ) )
   }
 
+  "The price for Banana" should "be 0.20P" in {
+    val cart = FruitCart().add( Banana() )
+    cart.price should be ( BigDecimal( "0.20" ) )
+  }
+
   "A cart with [ Apple, Apple, Orange, Apple ]" should "be 2.05 Actual price" in {
     val cart = FruitCart().add( Apple() ).add( Apple() ).add( Orange() ).add( Apple() )
     cart.price should be ( BigDecimal("2.05"))
@@ -35,6 +40,16 @@ class FruitCartTest extends AnyFlatSpec with Matchers{
   "A cart of oranges" should "have discount as 3 for 2 " in {
     val cart = FruitCart().add(Orange()).add(Orange()).add(Orange())
     cart.discountedPrice should be ( BigDecimal(0.50))
+  }
+
+  "A cart with Banana" should "give discount as 2 for 1[Buy One get One Free offer]" in {
+    val cart = FruitCart().add(Banana()).add(Banana())
+    cart.discountedPrice should be ( BigDecimal(0.20))
+  }
+
+  "A cart with Banana and Apple" should "Banana is free" in {
+    val cart = FruitCart().add(Apple()).add(Banana()).add(Banana())
+    cart.discountedPrice should be ( BigDecimal(0.80))
   }
 
 }
